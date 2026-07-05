@@ -8,7 +8,7 @@ function updateCountdown() {
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const weddingDay = new Date(target.getFullYear(), target.getMonth(), target.getDate());
 
-  const diffDays = -1;//Math.round((weddingDay - today) / (1000 * 60 * 60 * 24));
+  const diffDays = Math.round((weddingDay - today) / (1000 * 60 * 60 * 24));
   const el = document.getElementById("countdownText");
 
   if (!el) return;
