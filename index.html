@@ -20,7 +20,7 @@
     <a href="#program">Program</a>
     <a href="#ubytovanie">Ubytovanie</a>
     <a href="#dary">Dary</a>
-    <a href="#rsvp">RSVP</a>
+    <a href="#rsvp">Účasť</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 
@@ -113,16 +113,16 @@
     </section>
 
     <section class="section" id="rsvp">
-      <p class="section-kicker">RSVP</p>
-      <h2>Potvrdenie účasti</h2>
+      <p class="section-kicker">Účasť</p>
+      <h2>Tešíme sa na Vás</h2>
 
       <p>
-        Prosíme, dajte nám vedieť, či s vami môžeme počítať.
+        Pomôžte nám, prosím, s prípravami a dajte nám vedieť, či sa vidíme 24. októbra vo Vysokej nad Uhom (ideálne do 1.9.).
       </p>
 
       <form class="form rsvp-form" id="rsvpForm">
         <label>
-          Prídete osláviť náš veľký deň spolu s nami? ❤️
+          <span class="label-title">Prídete osláviť náš veľký deň spolu s nami? 💒</span>
           <select name="attendance" required>
             <option value="">Vyberte možnosť</option>
             <option>S radosťou prídem/prídeme</option>
@@ -132,25 +132,31 @@
         </label>
 
         <label>
-          Mená a priezviská hostí
+          <span class="label-title">Kontakt</span>
+          <small>Telefónne číslo, na ktorom vás vieme v prípade potreby zastihnúť.</small>
+          <input type="tel" name="contact" required placeholder="Napr. 0912 345 678">
+        </label>
+
+        <label>
+          <span class="label-title">Mená a priezviská hostí 👨‍👩‍👧‍👦</span>
           <small>Ak prídete, napíšte prosím všetkých dospelých a deti, za ktorých vypĺňate formulár.</small>
-          <textarea name="guest_names" rows="3"></textarea>
+          <textarea name="guest_names" rows="3" required></textarea>
         </label>
 
         <label>
-          Deti 👶
-          <small>Napr. Janko – detská porcia, Anička – bez jedla, bez miesta.</small>
-          <textarea name="children" rows="3"></textarea>
+          <span class="label-title">Deti 👶</span>
+          <small>Napíšte, prosím, či pre deti potrebujete: samostatné/žiadne miesto, prípadne detskú stoličku a celú/polovičnú/žiadnu porciu jedla.</small>
+          <textarea name="children" rows="3" placeholder="Napr. Janko – detská porcia, Anička – bez jedla, bez miesta."></textarea>
         </label>
 
         <label>
-          Stravovacie obmedzenia 🍽️
+          <span class="label-title">Stravovacie obmedzenia 🍽️</span>
           <small>Ak máte alergiu, intoleranciu alebo špeciálnu stravu, dajte nám vedieť.</small>
           <textarea name="dietary" rows="3" placeholder="Napr. Jozef – vegetarián, Mária – bezlepková"></textarea>
         </label>
 
         <label>
-          Doprava 🚗
+          <span class="label-title">Doprava 🚗</span>
           <select name="transport" required>
             <option value="">Vyberte možnosť</option>
             <option>Prídeme vlastným autom</option>
@@ -160,7 +166,7 @@
         </label>
 
         <label>
-          Ubytovanie 🏡
+          <span class="label-title">Ubytovanie 🏡</span>
           <small>Kapacita ubytovania je obmedzená, no pokúsime sa pomôcť tým, ktorí ho budú potrebovať.</small>
           <select name="accommodation" required>
             <option value="">Vyberte možnosť</option>
@@ -171,14 +177,15 @@
         </label>
 
         <label>
-          Pesnička na parket 🎶
+          <span class="label-title">Pesnička na parket 🎶</span>
           <small>Ktorá pesnička vás určite dostane na parket?</small>
           <input type="text" name="song">
         </label>
 
         <label>
-          Odkaz pre nás ❤️
-          <textarea name="message" rows="4" placeholder="Miesto na pár slov, ktoré nám chcete nechať."></textarea>
+          <span class="label-title">Odkaz pre nás ❤️</span>
+          <small>Miesto na pár slov, ktoré nám chcete nechať.</small>
+          <textarea name="message" rows="4"></textarea>
         </label>
 
         <button type="submit">Odoslať</button>

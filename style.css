@@ -428,8 +428,11 @@ textarea {
   display: block;
   color: var(--gray);
   opacity: 0.82;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.4;
+  font-weight: 500;
+  color: var(--green);
+  opacity: 1;
 }
 
 .rsvp-form label {
@@ -439,4 +442,12 @@ textarea {
 .rsvp-form button {
   justify-self: center;
   margin-top: 12px;
+}
+
+.label-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gray);
+  line-height: 1.2;
 }
