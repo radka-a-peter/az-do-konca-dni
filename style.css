@@ -423,3 +423,20 @@ textarea {
     grid-template-columns: minmax(0, 360px);
   }
 }
+
+.rsvp-form small {
+  display: block;
+  color: var(--gray);
+  opacity: 0.82;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.rsvp-form label {
+  gap: 8px;
+}
+
+.rsvp-form button {
+  justify-self: center;
+  margin-top: 12px;
+}

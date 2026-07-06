@@ -103,8 +103,8 @@
       <h2>Ak by ste nás chceli potešiť darom</h2>
 
       <p>
-        Ak by ste nám chceli urobiť radosť aj niečím praktickým, pripravili sme malý zoznam inšpirácií.
-        Berte ho, prosím, len ako pomôcku — najväčším darom pre nás bude, že budete v tento deň s nami.
+        Najväčším darom pre nás bude, že tento deň prežijete spolu s nami. Ak by ste nám predsa len chceli venovať aj niečo navyše, budeme vďační za príspevok do nášho spoločného začiatku.
+        A keďže vieme, že niekto preferuje praktické dary, pripravili sme aj pár tipov na darčeky, ktoré budú súčasťou budovanie nášho nového domova.<br>Ďakujeme, že budete súčasťou nášho dňa a našej radosti.
       </p>
 
       <div class="gift-grid">
@@ -116,51 +116,73 @@
       <p class="section-kicker">RSVP</p>
       <h2>Potvrdenie účasti</h2>
 
-      <form class="form" id="rsvpForm">
-        <label>
-          Meno a priezvisko
-          <input type="text" name="name" required placeholder="Ján Novák">
-        </label>
+      <p>
+        Prosíme, dajte nám vedieť, či s vami môžeme počítať.
+      </p>
 
+      <form class="form rsvp-form" id="rsvpForm">
         <label>
-          Počet osôb
-          <input type="number" name="guests" min="1" required placeholder="2">
-        </label>
-
-        <label>
-          Účasť na sobáši
-          <select name="ceremony">
-            <option>Áno</option>
-            <option>Nie</option>
-            <option>Ešte neviem</option>
+          Prídete osláviť náš veľký deň spolu s nami? ❤️
+          <select name="attendance" required>
+            <option value="">Vyberte možnosť</option>
+            <option>S radosťou prídem/prídeme</option>
+            <option>Prídem/prídeme len na sobáš</option>
+            <option>Žiaľ, nebudem/nebudeme môcť prísť</option>
           </select>
         </label>
 
         <label>
-          Účasť na hostine
-          <select name="reception">
-            <option>Áno</option>
-            <option>Nie</option>
-            <option>Ešte neviem</option>
+          Mená a priezviská hostí
+          <small>Ak prídete, napíšte prosím všetkých dospelých a deti, za ktorých vypĺňate formulár.</small>
+          <textarea name="guest_names" rows="3"></textarea>
+        </label>
+
+        <label>
+          Deti 👶
+          <small>Napr. Janko – detská porcia, Anička – bez jedla, bez miesta.</small>
+          <textarea name="children" rows="3"></textarea>
+        </label>
+
+        <label>
+          Stravovacie obmedzenia 🍽️
+          <small>Ak máte alergiu, intoleranciu alebo špeciálnu stravu, dajte nám vedieť.</small>
+          <textarea name="dietary" rows="3" placeholder="Napr. Jozef – vegetarián, Mária – bezlepková"></textarea>
+        </label>
+
+        <label>
+          Doprava 🚗
+          <select name="transport" required>
+            <option value="">Vyberte možnosť</option>
+            <option>Prídeme vlastným autom</option>
+            <option>Potrebujeme pomôcť s dopravou</option>
+            <option>Ešte nevieme</option>
           </select>
         </label>
 
         <label>
-          Potrebujete ubytovanie?
-          <select name="accommodation">
-            <option>Nie</option>
-            <option>Áno</option>
-            <option>Ešte neviem</option>
+          Ubytovanie 🏡
+          <small>Kapacita ubytovania je obmedzená, no pokúsime sa pomôcť tým, ktorí ho budú potrebovať.</small>
+          <select name="accommodation" required>
+            <option value="">Vyberte možnosť</option>
+            <option>Nepotrebujeme ubytovanie</option>
+            <option>Potrebovali by sme ubytovanie</option>
+            <option>Ešte nevieme</option>
           </select>
         </label>
 
         <label>
-          Poznámka
-          <textarea name="note" rows="4" placeholder="Sem môžete napísať potravinové intolerancie, potrebu ubytovania alebo čokoľvek, čo by sme mali vedieť."></textarea>
+          Pesnička na parket 🎶
+          <small>Ktorá pesnička vás určite dostane na parket?</small>
+          <input type="text" name="song">
+        </label>
+
+        <label>
+          Odkaz pre nás ❤️
+          <textarea name="message" rows="4" placeholder="Miesto na pár slov, ktoré nám chcete nechať."></textarea>
         </label>
 
         <button type="submit">Odoslať</button>
-        <p class="form-message" id="formMessage"></p>
+        <p class="form-message" id="rsvpMessage"></p>
       </form>
     </section>
 
@@ -212,5 +234,6 @@
 
   <script src="script.js"></script>
   <script src="gifts.js"></script>
+  <script src="rsvp.js"></script>
 </body>
 </html>
