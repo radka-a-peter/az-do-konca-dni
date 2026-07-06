@@ -20,24 +20,44 @@ async function loadGifts() {
 function renderGifts(gifts) {
   giftGrid.innerHTML = '';
 
-  if (gifts.length === 0) {
-  giftGrid.innerHTML = '<p>Zoznam darov zatiaľ pripravujeme.</p>';
-  return;
-}
+  if (!gifts || gifts.length === 0) {
+    giftGrid.innerHTML = '<p>Zoznam darov zatiaľ pripravujeme.</p>';
+    return;
+  }
 
   gifts.forEach(gift => {
     const card = document.createElement('article');
     card.className = gift.reserved ? 'gift-card reserved' : 'gift-card';
 
-    card.innerHTML = `
-      <h3>${gift.title}</h3>
-      <p>${gift.detail || ''}</p>
-      ${
-        gift.reserved
-          ? '<p class="reserved-text">Už rezervované</p>'
-          : `<button type="button" data-gift-id="${gift.id}">Rezervovať</button>`
-      }
-    `;
+    const title = document.createElement('h3');
+    title.textContent = gift.title;
+    card.appendChild(title);
+
+    if (gift.detail) {
+      const linkParagraph = document.createElement('p');
+      const link = document.createElement('a');
+
+      link.href = gift.detail;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = gift.link_text || 'Pozrieť dar';
+
+      linkParagraph.appendChild(link);
+      card.appendChild(linkParagraph);
+    }
+
+    if (gift.reserved) {
+      const reserved = document.createElement('p');
+      reserved.className = 'reserved-text';
+      reserved.textContent = 'Už rezervované';
+      card.appendChild(reserved);
+    } else {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.setAttribute('data-gift-id', gift.id);
+      button.textContent = 'Rezervovať';
+      card.appendChild(button);
+    }
 
     giftGrid.appendChild(card);
   });
@@ -49,9 +69,6 @@ function setupGiftButtons() {
   document.querySelectorAll('[data-gift-id]').forEach(button => {
     button.addEventListener('click', async () => {
       const giftId = button.getAttribute('data-gift-id');
-      const name = prompt('Napíšte prosím svoje meno pre rezerváciu daru:');
-
-      if (!name || !name.trim()) return;
 
       const confirmed = confirm('Naozaj chcete rezervovať tento dar?');
       if (!confirmed) return;
@@ -60,24 +77,23 @@ function setupGiftButtons() {
       button.textContent = 'Rezervujem...';
 
       try {
-        const response = await fetch(GIFTS_API_URL, {
-          method: 'POST',
-          body: JSON.stringify({
-            id: giftId,
-            name: name.trim()
-          })
-        });
+        const response = await fetch(
+          `${GIFTS_API_URL}?action=reserve_gift&id=${encodeURIComponent(giftId)}&_=${Date.now()}`
+        );
 
         const result = await response.json();
 
-        alert(result.message);
-        await loadGifts();
-
+        if (result.success) {
+          alert(result.message || 'Ďakujeme, dar bol rezervovaný.');
+        } else {
+          alert(result.message || 'Rezervácia sa nepodarila.');
+        }
       } catch (error) {
+        console.error('Chyba pri rezervácii:', error);
         alert('Rezervácia sa nepodarila. Skúste to prosím znova.');
-        button.disabled = false;
-        button.textContent = 'Rezervovať';
       }
+
+      await loadGifts();
     });
   });
 }
