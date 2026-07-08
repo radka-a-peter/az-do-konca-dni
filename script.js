@@ -53,3 +53,38 @@ function setupGiftMockup() {
 updateCountdown();
 setupRsvpForm();
 setupGiftMockup();
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalClose = document.querySelector(".image-modal-close");
+
+
+document.querySelectorAll(".lightbox-img").forEach(image => {
+
+  image.addEventListener("click", () => {
+
+    modalImage.src = image.src;
+    modalImage.alt = image.alt;
+
+    modal.classList.add("open");
+  });
+
+});
+
+
+if (modal) {
+
+  modal.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+}
+
+
+if (modalClose) {
+
+  modalClose.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+}
