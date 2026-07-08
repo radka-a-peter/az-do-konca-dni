@@ -462,6 +462,60 @@ textarea {
   margin-top: 34px
 }
 
+/* --------------drinks - multiselect --------------*/
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+
+.choice-grid label {
+  cursor: pointer;
+}
+
+
+.choice-grid input {
+  display: none;
+}
+
+
+.choice-grid span {
+  display: block;
+  padding: 12px;
+  text-align: center;
+
+  border: 1px solid var(--line);
+  background: white;
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+
+  transition: 0.2s;
+}
+
+
+.choice-grid input:checked + span {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+
+
+@media (max-width: 600px) {
+  .choice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.drinks-field.invalid .choice-grid span {
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+/* ---------------------------------------------- */
+
 .parking-map {
   width: min(1000px, 100%);
   margin: 36px auto 20px;

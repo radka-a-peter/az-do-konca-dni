@@ -14,6 +14,29 @@ if (rsvpForm) {
   rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    //
+const attendance = rsvpForm.querySelector('[name="attendance"]').value;
+
+const drinksField = rsvpForm.querySelector(".drinks-field");
+const selectedDrinks = rsvpForm.querySelectorAll('input[name="drinks"]:checked');
+
+if (
+  attendance === "S radosťou prídem/prídeme" &&
+  selectedDrinks.length === 0
+) {
+  drinksField.classList.add("invalid");
+
+  drinksField.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  return;
+}
+
+drinksField.classList.remove("invalid");
+    //
+
     const submitButton = rsvpForm.querySelector('button[type="submit"]');
     const formData = new FormData(rsvpForm);
 
@@ -24,7 +47,9 @@ if (rsvpForm) {
       contact: formData.get("contact"),
       children: formData.get("children"),
       dietary: formData.get("dietary"),
-      transport: formData.get("transport"),
+      drinks: [...rsvpForm.querySelectorAll('input[name="drinks"]:checked')]
+        .map(item => item.value)
+        .join(", "),
       accommodation: formData.get("accommodation"),
       song: formData.get("song"),
       message: formData.get("message")
@@ -72,10 +97,23 @@ if (rsvpForm) {
 
     document.querySelector('[name="attendance"]').required = true;
     document.querySelector('[name="guest_names"]').required = true;
+    document.querySelector(".drinks-field").classList.remove("invalid");
   }
 
   if (attendanceSelect) {
     attendanceSelect.addEventListener("change", updateRsvpRequiredFields);
     updateRsvpRequiredFields();
   }
+
+  if (rsvpForm) {
+  rsvpForm.querySelectorAll('input[name="drinks"]').forEach(input => {
+    input.addEventListener("change", () => {
+      const drinksField = rsvpForm.querySelector(".drinks-field");
+
+      if (drinksField) {
+        drinksField.classList.remove("invalid");
+      }
+    });
+  });
+}
 }
