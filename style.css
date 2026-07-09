@@ -324,7 +324,7 @@ textarea {
   padding: 36px 18px;
   text-align: center;
   color: var(--gray);
-  /* border-top: 1px solid var(--line); */
+  border-top: 1px solid var(--line);
 
   background: var(--soft);
 }
