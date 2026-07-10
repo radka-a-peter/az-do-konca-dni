@@ -764,3 +764,51 @@ textarea {
 .image-modal.open {
   display: flex;
 }
+
+/* ------------------ Google Photos ----------------------- */
+
+.photo-album-link {
+  width: min(680px, 100%);
+  margin: 54px auto 0;
+  padding: 32px 24px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+}
+
+.photo-album-link h3 {
+  margin-bottom: 12px;
+}
+
+.photo-album-link p {
+  margin-bottom: 20px;
+}
+
+.album-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 24px;
+
+  border: 1px solid var(--green);
+  border-radius: 999px;
+
+  background: var(--green);
+  color: white;
+
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.album-button:hover {
+  opacity: 0.88;
+}
+
+/* -------------------------------------------------------- */

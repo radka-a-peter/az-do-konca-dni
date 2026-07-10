@@ -24,6 +24,22 @@ function updateCountdown() {
   } else {
     el.innerHTML = `${WEDDING_DISPLAY_DATE} sa stali<br><span class="green">manželia Tivadaroví</span>`;
   }
+
+  // Google Photos link
+  const albumText = document.getElementById("album-text");
+
+  if (albumText) {
+    const weddingDate = new Date("2026-10-24T00:00:00");
+    const today = new Date();
+
+    if (today < weddingDate) {
+      albumText.textContent =
+        "Po svadbe budeme radi, ak sa s nami podelíte o zábery, ktoré zachytíte počas nášho spoločného dňa.";
+    } else {
+      albumText.textContent =
+        "Ďakujeme, že ste náš deň prežili spolu s nami. Budeme radi, ak sem pridáte fotografie, ktoré ste počas svadby zachytili.";
+    }
+  }
 }
 
 function setupRsvpForm() {
