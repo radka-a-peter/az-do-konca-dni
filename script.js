@@ -34,7 +34,7 @@ function updateCountdown() {
 
     if (today < weddingDate) {
       albumText.textContent =
-        "Po svadbe budeme radi, ak sa s nami podelíte o zábery, ktoré zachytíte počas nášho spoločného dňa.";
+        "Budeme radi, ak sa s nami po svadbe podelíte o zábery, ktoré zachytíte počas nášho spoločného dňa.";
     } else {
       albumText.textContent =
         "Ďakujeme, že ste náš deň prežili spolu s nami. Budeme radi, ak sem pridáte fotografie, ktoré ste počas svadby zachytili.";
